@@ -1,0 +1,21 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-1.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+    	<meta th:replace="shared :: common" />
+    </head>
+	<body>
+		<div th:replace="shared :: menu"></div>
+		<h1 class="center">Hello, world!</h1>
+		Step 1 of converting a file is to select your source file:
+		<form action="wizard/upload" method="POST" enctype="multipart/form-data">
+			<div class="form-group">
+				<label class="btn btn-primary" for="sourceFile">
+				    <input id="sourceFile" name="sourceFile" type="file" onChange="form.submit();" style="display:none;" />
+				    Source File...
+				</label>
+			</div>
+		</form>
+	</body>
+</html>

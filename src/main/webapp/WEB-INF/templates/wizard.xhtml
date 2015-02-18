@@ -1,0 +1,31 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-1.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+    	<meta th:replace="shared :: common" />
+    </head>
+	<body>
+		<div th:replace="shared :: menu"></div>
+		<div role="tabpanel">
+
+		  <!-- Nav tabs -->
+		  <ul class="nav nav-tabs" role="tablist">
+		    <li role="presentation" class="active"><a href="#file" aria-controls="file" role="tab" data-toggle="tab">File</a></li>
+		    <li role="presentation"><a href="#records" aria-controls="records" role="tab" data-toggle="tab">Records</a></li>
+		    <li role="presentation"><a href="#fields" aria-controls="fields" role="tab" data-toggle="tab">Fields</a></li>
+		    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+		  </ul>
+		
+		  <!-- Tab panes -->
+		  <div class="tab-content">
+		    <div role="tabpanel" class="tab-pane active" id="file" th:include="tabs :: file"></div>
+		    <div role="tabpanel" class="tab-pane" id="records">Lorem Ipsum</div>
+		    <div role="tabpanel" class="tab-pane" id="fields">muspI meroL</div>
+		    <div role="tabpanel" class="tab-pane" id="settings">meroL muspI</div>
+		  </div>
+		
+		</div>
+		<div th:replace="shared :: fileDetails"></div>
+	</body>
+</html>

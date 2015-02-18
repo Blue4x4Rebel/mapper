@@ -1,0 +1,30 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-1.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+	<body>
+  		<div th:fragment="file">
+  			<div class="checkbox">
+			  <label>
+			    <input class="file-header" data-file-field="header" type="checkbox" th:checked="${@sset.fileDetails.header}" />
+			    Row 1 contains a header or labels.
+			  </label>
+			</div>
+  			<div class="checkbox">
+			  <label>
+			    <input class="file-footer" data-file-field="footer" type="checkbox" th:checked="${@sset.fileDetails.footer}" />
+			    The last row is a footer.
+			  </label>
+			</div>
+			<div th:replace="(${#strings.toLowerCase(@sset.fileDetails.type)} + '-tabs') :: file"></div>
+			<script th:inline="javascript">
+				/*<![CDATA[*/
+				var fileUrl = /*[[@{/wizard/file}]]*/ '/wizard/file';
+				/*]]>*/
+			</script>
+			<script th:src="@{/resources/js/file.js}"></script>
+  		</div>
+	</body>
+	
+</html>

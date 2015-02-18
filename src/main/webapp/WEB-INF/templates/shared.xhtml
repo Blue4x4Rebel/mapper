@@ -1,0 +1,55 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-1.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<!-- 
+		<meta th:fragment="common" name="_csrf" th:attr="content=${_csrf.token}"/>
+    	<!- default header name is X-CSRF-TOKEN ->
+    	<meta th:fragment="common" name="_csrf_header" th:attr="content=${_csrf.headerName}"/>
+		 -->
+		<link th:fragment="common" rel="icon" type="image/x-icon" th:href="@{resources/img/favicon.ico}" href="resources/img/favicon.ico"/>
+    	<link th:fragment="common" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet"></link>
+		<link th:fragment="common" rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"></link>
+		<script th:fragment="common" src="//code.jquery.com/jquery-1.10.2.js"></script>
+		<script th:fragment="common" src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script th:fragment="common" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+				
+	</head>
+	<body>
+  
+	  	<nav th:fragment="menu" class="navbar navbar-inverse navbar-static-top">
+	      <div class="container-fluid">
+	      	<div class="navbar-header">
+	      		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+	      			<span class="sr-only">Toggle navigation</span>
+	      			<span class="icon-bar"></span>
+	      			<span class="icon-bar"></span>
+	      			<span class="icon-bar"></span>
+	      		</button>
+	      		<a class="navbar-brand" href="#">Eligibility Mapper</a>
+	      	</div>
+	      	<div class="collapse navbar-collapse" id="navbar-collapse-1">
+			</div>
+		  </div>
+		</nav>
+		
+		<div th:fragment="fileDetails" class="well">
+			<table class="table table-condensed">
+			
+			</table>
+			<div class="form-group">
+				<label class="col-sm-1 control-label">File</label>
+				<div class="col-sm-3">
+			    	<p class="form-control-static" th:unless="${@sset.fileDetails} == null" th:text="${@sset.fileDetails.name}"></p>
+				</div>
+				<label class="col-sm-1 control-label">Type</label>
+				<div class="col-sm-3">
+					<p class="form-control-static" th:unless="${@sset.fileDetails} == null" th:text="${@sset.fileDetails.type}"></p>
+				</div>
+			</div>
+		</div>
+	</body>
+	
+</html>
