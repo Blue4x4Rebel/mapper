@@ -3,6 +3,8 @@ package com.fornsys.mapper.model.poi;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fornsys.mapper.model.FileDetails;
 
 public class ExcelFileDetails extends FileDetails {
@@ -44,5 +46,15 @@ public class ExcelFileDetails extends FileDetails {
 	
 	public String getType() {
 		return "Excel";
+	}
+
+	@Override
+	public void update(ObjectNode updater) {
+		JsonNode jn = updater.get("sheet");
+		if( jn != null ) {
+			ws = jn.asInt(this.ws == null ? -1 : this.ws);
+		}
+		
+		super.update(updater);
 	}
 }

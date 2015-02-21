@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fornsys.mapper.model.FileDetails;
 import com.fornsys.mapper.model.SessionSettings;
 import com.fornsys.mapper.model.SourceFactory;
@@ -73,7 +74,7 @@ public class WizardController {
 					consumes="application/json",
 					produces="application/json")
 	@ResponseBody
-	public boolean doUpdateFileField(@RequestBody FileDetails fieldUpdate) {
-		return false;
+	public void doUpdateFileField(@RequestBody ObjectNode updater) {
+		sset.getFileDetails().update(updater);
 	}
 }

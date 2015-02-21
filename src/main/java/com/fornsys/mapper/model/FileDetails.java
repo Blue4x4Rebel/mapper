@@ -1,5 +1,8 @@
 package com.fornsys.mapper.model;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
 public abstract class FileDetails {
 	private String name;
 	private String contentType;
@@ -54,4 +57,16 @@ public abstract class FileDetails {
 	}
 	
 	public abstract String getType();
+
+	public void update(ObjectNode updater) {
+		JsonNode jn = updater.get("header");
+		if( jn != null ) {
+			this.firstRowHeader = updater.asBoolean(firstRowHeader);
+		}
+		
+		jn = updater.get("footer");
+		if( jn != null ) {
+			this.lastRowFooter = updater.asBoolean(lastRowFooter);
+		}
+	};
 }
